@@ -48,6 +48,7 @@ install:
 script:
   - cd docs && doxygen Doxyfile
 deploy:
+  script: export TRAVIS_BUILD_DIR=/home/travis/build/Jagaskak/mtt
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
