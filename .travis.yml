@@ -51,7 +51,7 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  local_dir: /html
+  local_dir: /docs/html
   on:
     branch: master
 after_success: 
