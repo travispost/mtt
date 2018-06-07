@@ -44,10 +44,8 @@ addons:
       - doxygen-gui
       - graphviz
 install:
-  # - script/bootstrap
   - pip install -r pyenv.txt
 script:
-  - script/cibuild
   - cd docs && doxygen Doxyfile
   - /home/travis/build/Jagaskak/mtt/pyclient/pymtt.py --verbose --base-dir=/home/travis/build/Jagaskak/mtt/pylib /home/travis/build/Jagaskak/mtt/samples/python/ompi_hello_world.ini
  
