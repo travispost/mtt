@@ -44,7 +44,7 @@ addons:
       - doxygen-gui
       - graphviz
 install:
-  - script/bootstrap
+  # - script/bootstrap
   - pip install -r pyenv.txt
 script:
   - script/cibuild
