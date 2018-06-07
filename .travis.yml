@@ -49,17 +49,17 @@ script:
   - cd docs && doxygen Doxyfile
   - /home/travis/build/Jagaskak/mtt/pyclient/pymtt.py --verbose --base-dir=/home/travis/build/Jagaskak/mtt/pylib /home/travis/build/Jagaskak/mtt/samples/python/ompi_hello_world.ini
  
-  - echo current dir
-  - ls .
+   - echo current dir
+  - ls ./mttscratch
  
-  - echo contents of MTTSCRATCH
-  - ls ${ENV:TRAVIS_BUILD_DIR}/mttscratch
+  #- echo contents of MTTSCRATCH
+  #- ls ${ENV:TRAVIS_BUILD_DIR}/mttscratch
   
-  - echo contents of TRAVIS_BUILD_DIR
-  - ls ${ENV:TRAVIS_BUILD_DIR}
+  #- echo contents of TRAVIS_BUILD_DIR
+  #- ls ${ENV:TRAVIS_BUILD_DIR}
   
-  - echo contents of TRAVIS_BUILD_DIR/samples/python
-  - ls ${ENV:TRAVIS_BUILD_DIR}/samples/python
+  #- echo contents of TRAVIS_BUILD_DIR/samples/python
+  #- ls ${ENV:TRAVIS_BUILD_DIR}/samples/python
   # - /home/travis/build/Jagaskak/mtt/pyclient/pymtt.py --verbose --base-dir=/home/travis/build/Jagaskak/mtt/pylib /home/travis/build/Jagaskak/mtt/tests/bat/negative.ini
   # - /home/travis/build/Jagaskak/mtt/pyclient/pymtt.py --verbose --base-dir=/home/travis/build/Jagaskak/mtt/pylib /home/travis/build/Jagaskak/mtt/tests/bat/default_collect_profile.ini
   # - /home/travis/build/Jagaskak/mtt/pyclient/pymtt.py --verbose --base-dir=/home/travis/build/Jagaskak/mtt/pylib /home/travis/build/Jagaskak/mtt/tests/bat/default_check_profile.ini
