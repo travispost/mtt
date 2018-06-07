@@ -53,6 +53,7 @@ script:
   #- ls ./mttscratch
   
   - echo EASY WAY?
+  - pwd
   - find -name mpi_hello_world
  
   #- echo contents of MTTSCRATCH
