@@ -49,8 +49,11 @@ script:
   - cd docs && doxygen Doxyfile
   - /home/travis/build/Jagaskak/mtt/pyclient/pymtt.py --verbose --base-dir=/home/travis/build/Jagaskak/mtt/pylib /home/travis/build/Jagaskak/mtt/samples/python/ompi_hello_world.ini
  
-   - echo current dir
-  - ls ./mttscratch
+  #- echo current dir
+  #- ls ./mttscratch
+  
+  - echo EASY WAY?
+  - find -name mpi_hello_world
  
   #- echo contents of MTTSCRATCH
   #- ls ${ENV:TRAVIS_BUILD_DIR}/mttscratch
