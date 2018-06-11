@@ -223,7 +223,8 @@ extra information as possible.
 
 Thanks for your time.
 
-Documentation
--------------
-https://github.com/Jagaskak/mtt/blob/gh-pages/index.html
+Doxygen
+-------
+
+[Doxygen](https://github.com/Jagaskak/mtt/dox/index.html)
 
