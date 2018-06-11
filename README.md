@@ -222,3 +222,8 @@ When submitting bug reports to either list, be sure to include as much
 extra information as possible.
 
 Thanks for your time.
+
+Documentation
+-------------
+https://github.com/Jagaskak/mtt/blob/gh-pages/index.html
+
