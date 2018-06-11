@@ -226,5 +226,5 @@ Thanks for your time.
 Doxygen
 -------
 
-[Doxygen](https://github.com/Jagaskak/mtt/dox/index.html)
+[Doxygen](https://jagaskak.github.io/mtt/dox/index.html)
 
