@@ -1,3 +1,4 @@
 theme: jekyll-theme-leap-day
 title: MTT Python Client
 description: This is a trial
+show_downloads: true
