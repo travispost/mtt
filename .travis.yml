@@ -34,7 +34,7 @@ dist: trusty
 language: python
 git:
   depth: 1000
-before_install: 
+before_install:
 addons:
   apt:
     packages:
@@ -45,23 +45,30 @@ addons:
       - graphviz
 install:
   - pip install -r pyenv.txt
+before_script:
+  - export PATH=${TRAVIS_BUILD_DIR}/mttscratch/TestGet_HelloWorld/:${TRAVIS_BUILD_DIR}/mttscratch/MiddlewareBuild_OMPI/bin:${PATH}
+  - export CPATH=${TRAVIS_BUILD_DIR}/mttscratch/MiddlewareBuild_OMPI/include/:${TRAVIS_BUILD_DIR}/mttscratch/MiddlewareGet_OMPI/ompi/ompi/include/
 script:
-  - cd docs && doxygen Doxyfile
-  - /home/travis/build/Jagaskak/mtt/pyclient/pymtt.py --verbose --base-dir=/home/travis/build/Jagaskak/mtt/pylib /home/travis/build/Jagaskak/mtt/samples/python/ompi_hello_world.ini
- 
+  - pushd docs && doxygen Doxyfile ; popd
+  - python pyclient/pymtt.py --verbose --base-dir=${TRAVIS_BUILD_DIR}/pylib/ samples/python/ompi_hello_world.ini
+
+  - find . -name mpi.h
+  - find . -name mpicc
+  - find . -name mpi_hello_world.c
+  - find . -name mpi_hello_world
   #- echo current dir
   #- ls ./mttscratch
-  
+
   - echo EASY WAY?
   - pwd
   - find -name mpi_hello_world
- 
+
   #- echo contents of MTTSCRATCH
   #- ls ${ENV:TRAVIS_BUILD_DIR}/mttscratch
-  
+
   #- echo contents of TRAVIS_BUILD_DIR
   #- ls ${ENV:TRAVIS_BUILD_DIR}
-  
+
   #- echo contents of TRAVIS_BUILD_DIR/samples/python
   #- ls ${ENV:TRAVIS_BUILD_DIR}/samples/python
   # - /home/travis/build/Jagaskak/mtt/pyclient/pymtt.py --verbose --base-dir=/home/travis/build/Jagaskak/mtt/pylib /home/travis/build/Jagaskak/mtt/tests/bat/negative.ini
@@ -74,7 +81,11 @@ deploy:
   local_dir: /docs/html
   on:
     branch: master
-after_success: 
+after_success:
 env:
+  global:
+    - MTT_INSTALL_DIR=${TRAVIS_BUILD_DIR}
+    - CPATH=${TRAVIS_BUILD_DIR}/mttscratch/MiddlewareBuild_OMPI/include/:${TRAVIS_BUILD_DIR}/mttscratch/MiddlewareGet_OMPI/ompi/ompi/include/
+    - PATH=${TRAVIS_BUILD_DIR}/mttscratch/TestGet_HelloWorld/:${TRAVIS_BUILD_DIR}/mttscratch/MiddlewareBuild_OMPI/bin:${PATH}
   matrix:
     secure: Nc4e0xLPCOkuF7qI56GQPvtBZb3d7yWToopwBisXfmuAWda9UkQu1oq23RBAaUKUygwImAuNMnC2UF1HVxa8+NauMZbr09nxqA0uPGvFWDs3H8bhzOUs1JGFaZrSqv0ntCZSyNwwmTSLX6ctM2shcEfTj1+4MfDeToMMLF59Ie4mUZArRgrJF596eM13oHLB6ZFNHP15OlN4WAZujmUAkKchSrOkNubETTk05TdGUA6gC6vNFtVhv7G8maM3I8TE0RdLmeAs9v1kFnz4zVo9HRTsGKGOjy3V3o38uYBOqL8ye4B6Q1OnMEPvGSMSAoM8/cc4XSfJslh8xLgcSMRqeqjx1JNDQRQqxyCt/lM856VNHhhfd14gy4eQdHuZNpXilqiYKeVmA6euGA9pJyFWgBEb4XQ96uD41LOgcHcRLse8NW8t8V+Acv/62fmYN/Rg3xhMZdwKlz01eZVOmsDI7JjyL+t9vvPeY3Mvr/h0Q19iN7JJKXcK6tbAzaFQkG0pBQnytrSkWx8z1C20ZSDH9+VncsDRJ33voAhGiD2H/8jPWeoooKSraPcM0Io1CMw0Qz9klGjDTWYbrWvs/LCfBiqqBwfYw7qQNszn/WzZRJxk4DhxnFkzJOa7K2WM+Aa3fLpAfhvcvymaxEVfCCQBFNlKZhylCA2+UohOblw2cQY=
